@@ -29,19 +29,15 @@ except Exception as e:
     st.error(f"❗ 파일을 읽는 중 오류 발생: {e}")
     st.stop()
 
-# 필수 컬럼 확인
-if '재분석_감정' not in df.columns or '리뷰' not in df.columns:
-    st.error("❗ 필수 컬럼 '리뷰' 또는 '재분석_감정'이 존재하지 않습니다.")
-    st.stop()
 
 
 st.write(df['재분석_감정'].value_counts())
 # 중립 제외
-filtered_df = df[df['재분석_감정'] != '중립']
+filtered_df = df[df['감정'] != '중립']
 
 # 감정 분포 데이터프레임 생성
 sentiment_counts = (
-    df['재분석_감정'].value_counts()
+    df['감정'].value_counts()
     .rename_axis('감정')
     .reset_index(name='리뷰 수')
 )
