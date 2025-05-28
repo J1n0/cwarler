@@ -31,7 +31,7 @@ except Exception as e:
 
 
 
-st.write(df['재분석_감정'].value_counts())
+st.write(df['감정'].value_counts())
 # 중립 제외
 filtered_df = df[df['감정'] != '중립']
 
