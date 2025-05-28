@@ -7,6 +7,12 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from konlpy.tag import Okt
 
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+
+# Windows 기본 한글 폰트 설정 (예: Malgun Gothic)
+plt.rcParams['font.family'] = 'Malgun Gothic
+
 # 페이지 설정
 st.set_page_config(layout="wide")
 st.title("📊 Google Play 리뷰 감정 워드클라우드")
